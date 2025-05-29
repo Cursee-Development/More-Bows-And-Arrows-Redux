@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "X": {
+      "item": "minecraft:bow"
+    }
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "item": "more_bows_and_arrows:lapis_bow"
+  },
+  "show_notification": true
+}

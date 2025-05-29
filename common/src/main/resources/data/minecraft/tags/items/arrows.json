@@ -1,0 +1,29 @@
+{
+  "replace": false,
+  "values": [
+    "more_bows_and_arrows:really_big_arrow",
+
+    "more_bows_and_arrows:flint_and_steel_arrow",
+    "more_bows_and_arrows:ender_pearl_arrow",
+    "more_bows_and_arrows:tnt_arrow",
+    "more_bows_and_arrows:paper_arrow",
+    "more_bows_and_arrows:moss_arrow",
+
+    "more_bows_and_arrows:amethyst_arrow",
+    "more_bows_and_arrows:bamboo_arrow",
+    "more_bows_and_arrows:blaze_rod_arrow",
+    "more_bows_and_arrows:bone_arrow",
+    "more_bows_and_arrows:cactus_arrow",
+    "more_bows_and_arrows:coal_arrow",
+    "more_bows_and_arrows:emerald_arrow",
+    "more_bows_and_arrows:lapis_arrow",
+    "more_bows_and_arrows:obsidian_arrow",
+    "more_bows_and_arrows:flint_arrow",
+
+    "more_bows_and_arrows:iron_arrow",
+    "more_bows_and_arrows:copper_arrow",
+    "more_bows_and_arrows:gold_arrow",
+    "more_bows_and_arrows:diamond_arrow",
+    "more_bows_and_arrows:netherite_arrow"
+  ]
+}

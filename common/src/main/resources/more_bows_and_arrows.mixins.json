@@ -4,8 +4,16 @@
     "package": "com.cursee.more_bows_and_arrows.mixin",
     "refmap": "${mod_id}.refmap.json",
     "compatibilityLevel": "JAVA_17",
-    "mixins": [],
-    "client": [],
+    "mixins": [
+        "AbstractArrowMixin",
+        "BowItemMixin",
+        "ItemMixin",
+        "UtilMixin"
+    ],
+    "client": [
+        "AbstractClientPlayerMixin",
+        "ItemInHandRendererMixin"
+    ],
     "server": [],
     "injectors": {
         "defaultRequire": 1

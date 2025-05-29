@@ -15,10 +15,10 @@ legacyForge {
 
     validateAccessTransformers = true
 
-    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
-    if (at.exists()) {
-        accessTransformers = at
-    }
+//    if (file("./src/main/resources/META-INF/accesstransformer.cfg").exists()) {
+//        println 'forge at exists'
+//        accessTransformers.from "./src/main/resources/META-INF/accesstransformer.cfg"
+//    }
     parchment {
         minecraftVersion = parchment_minecraft
         mappingsVersion = parchment_version
@@ -49,7 +49,7 @@ dependencies {
     compileOnly project(":common")
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 
-    implementation "curse.maven:monolib-968432:6544057"
+    modApi "curse.maven:monolib-968432:6544057"
 }
 
 jar {

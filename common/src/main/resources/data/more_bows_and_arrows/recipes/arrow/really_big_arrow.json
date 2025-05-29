@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "CCC",
+      "SSS",
+      "FFF"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:flint"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+      "item": "more_bows_and_arrows:really_big_arrow",
+      "count": 2
+  }
+}

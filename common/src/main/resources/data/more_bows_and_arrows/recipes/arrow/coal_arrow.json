@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "C",
+      "S",
+      "F"
+      
+  ],
+  "key": {
+    "C": [
+      {
+        "item": "minecraft:coal"
+      },
+      {
+        "item": "minecraft:charcoal"
+      }
+    ],
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+      "item": "more_bows_and_arrows:coal_arrow",
+      "count": 4
+  }
+}

@@ -5,8 +5,12 @@ plugins {
 
 legacyForge {
     mcpVersion = minecraft_version
-    if (file("src/main/resources/META-INF/accesstransformer.cfg").exists()) {
-        accessTransformers = ["src/main/resources/META-INF/accesstransformer.cfg"]
+
+    // validateAccessTransformers = true
+
+    if (file("./src/main/resources/META-INF/accesstransformer.cfg").exists()) {
+        println 'common at exists'
+        accessTransformers.from "./src/main/resources/META-INF/accesstransformer.cfg"
     }
     parchment {
         minecraftVersion = parchment_minecraft
@@ -23,6 +27,7 @@ repositories {
 
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
+
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
 
     // build the latest version of monolib yourself from https://www.github.com/Cursee-Development/Mono-Lib-Redux (future: https://www.github.com/Cursee-Development/Mono-Lib)

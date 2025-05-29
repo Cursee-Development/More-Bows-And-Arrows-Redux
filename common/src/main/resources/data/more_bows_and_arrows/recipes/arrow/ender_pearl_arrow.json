@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "E",
+      "S",
+      "F"
+      
+  ],
+  "key": {
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+      "item": "more_bows_and_arrows:ender_pearl_arrow",
+      "count": 4
+  }
+}
