@@ -68,6 +68,13 @@ public class ModArrow extends AbstractArrow implements IModArrow {
     }
 
     @Override
+    public void setEnchantmentEffectsFromEntity(LivingEntity shooter, float velocity) {
+        super.setEnchantmentEffectsFromEntity(shooter, velocity);
+        if (!(this.type == ArrowType.BLAZE_ROD)) return;
+        this.setSecondsOnFire(100); /// {@link AbstractArrow#setEnchantmentEffectsFromEntity(LivingEntity, float)}
+    }
+
+    @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
         if (this.type == ArrowType.REALLY_BIG && result.getEntity() instanceof LivingEntity living) {

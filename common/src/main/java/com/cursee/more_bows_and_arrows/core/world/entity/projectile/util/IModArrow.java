@@ -52,10 +52,6 @@ public interface IModArrow {
             }
             case BLAZE_ROD -> {
                 igniteBlockOnHit(result, level, pos, state);
-
-                if (bow != null && bow.getBowType() == BowType.BLAZE) {
-                    level.explode(null, result.getBlockPos().getX(), result.getBlockPos().getY()+1, result.getBlockPos().getZ(), 2.0f, true, Level.ExplosionInteraction.TNT);
-                }
             }
             case COPPER -> {
 
@@ -93,7 +89,10 @@ public interface IModArrow {
                     paperArrowHitsBlock(owner, level, pos);
                 }
             }
-            case TNT -> level.explode(owner, result.getBlockPos().getX(), result.getBlockPos().getY()+1, result.getBlockPos().getZ(), 2.0f, true, Level.ExplosionInteraction.TNT);
+            case TNT -> {
+                arrow.discard();
+                level.explode(owner, result.getBlockPos().getX(), result.getBlockPos().getY() + 1, result.getBlockPos().getZ(), 2.0f, true, Level.ExplosionInteraction.TNT);
+            }
         }
     }
 
@@ -113,10 +112,6 @@ public interface IModArrow {
         switch (getArrowType()) {
             case BLAZE_ROD -> {
                 hitEntity.setSecondsOnFire(2);
-
-                if (bow != null && bow.getBowType() == BowType.BLAZE) {
-                    level.explode(null, hitEntity.xo, hitEntity.yo+1, hitEntity.zo, 2.0f, true, Level.ExplosionInteraction.TNT);
-                }
             }
             case BONE -> hitEntity.addEffect(new MobEffectInstance(MobEffects.WITHER, 20, 1));
             case COPPER -> {
@@ -148,7 +143,10 @@ public interface IModArrow {
             case PAPER -> {
                 if (bow != null && (bow.getBowType() == BowType.PAPER || bow.getBowType() == BowType.MOSS)) paperArrowHitsEntity(owner, level, hitEntity);
             }
-            case TNT -> level.explode(null, hitEntity.xo, hitEntity.yo+1, hitEntity.zo, 2.0f, true, Level.ExplosionInteraction.TNT);
+            case TNT -> {
+                level.explode(null, hitEntity.xo, hitEntity.yo + 1, hitEntity.zo, 2.0f, true, Level.ExplosionInteraction.TNT);
+                arrow.discard();
+            }
         }
     }
 

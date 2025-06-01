@@ -39,7 +39,7 @@ public class ModItems {
             }
         }
 
-        if (!ModConfig.BANNED_ARROWS.isEmpty()) {
+        if (ModConfig.BANNED_ARROWS != null && !ModConfig.BANNED_ARROWS.isEmpty()) {
             Constants.LOG.info("Some arrows were banned: ");
             ModConfig.BANNED_ARROWS.forEach(System.out::println);
         }

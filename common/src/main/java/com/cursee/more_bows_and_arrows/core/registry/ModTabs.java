@@ -29,8 +29,14 @@ public class ModTabs {
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.TEMPO_THIEF, ModEnchantments.TEMPO_THIEF.getMaxLevel())));
                 ModItems.ITEMS_FOR_TAB.forEach(item -> {
 
-                    if (ModConfig.BANNED_BOWS.contains(item.getDescriptionId().replace("item." + Constants.MOD_ID + ".", ""))) return;
-                    if (ModConfig.BANNED_ARROWS.contains(item.getDescriptionId().replace("item." + Constants.MOD_ID + ".", ""))) return;
+                    {
+                        if (ModConfig.BANNED_BOWS != null) {
+                            if (ModConfig.BANNED_BOWS.contains(item.getDescriptionId().replace("item." + Constants.MOD_ID + ".", "")))
+                                return;
+                            if (ModConfig.BANNED_ARROWS.contains(item.getDescriptionId().replace("item." + Constants.MOD_ID + ".", "")))
+                                return;
+                        }
+                    }
 
                     output.accept(item);
                 });
