@@ -26,6 +26,6 @@ public class ItemInHandRendererMixin {
 
     @ModifyConstant(method = "renderArmWithItem", constant = @Constant(floatValue = 20.0f))
     private float more_bows_and_arrows$renderArmWithItemModifyConstant(float constant) {
-        return EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.BONUS_SHOT, more_bows_and_arrows$stack) > 0 ? 10.0f : 20.0f;
+        return EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.QUICK_PULL, more_bows_and_arrows$stack) > 0 ? 10.0f : 20.0f;
     }
 }

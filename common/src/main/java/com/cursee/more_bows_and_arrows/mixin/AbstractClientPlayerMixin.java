@@ -20,7 +20,7 @@ public class AbstractClientPlayerMixin {
     private void more_bows_and_arrows$getFieldOfViewModifier(CallbackInfoReturnable<Float> cir) {
         AbstractClientPlayer self = (AbstractClientPlayer) (Object) this;
         ItemStack stack = self.getUseItem();
-        if (stack.getItem() instanceof ModBowItem && !stack.is(Items.BOW)) {
+        if (stack.getItem() instanceof BowItem) {
 
             float f = 1.0F;
             if (self.getAbilities().flying) {
@@ -33,7 +33,7 @@ public class AbstractClientPlayerMixin {
             }
 
             int i = self.getTicksUsingItem();
-            float duration = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.BONUS_SHOT, stack) > 0 ? 10.0f : 20.0f;
+            float duration = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.QUICK_PULL, stack) > 0 ? 10.0f : 20.0f;
             float f1 = (float)i / duration;
             if (f1 > 1.0F) {
                 f1 = 1.0F;

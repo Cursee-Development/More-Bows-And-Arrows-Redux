@@ -48,7 +48,22 @@ public class ModBowItem extends BowItem {
     public void hurtLivingEntity(AbstractArrow abstractArrow, LivingEntity owner, LivingEntity hitEntity) {
 
         // hurt the hit entity with the original abstractArrow+owner as the source, but apply the bow's damage bonus
-        hitEntity.hurt(owner.level().damageSources().arrow(abstractArrow, owner), this.type.getAttackDamageBonus());
+//        hitEntity.hurtMarked = false;
+//        hitEntity.setInvulnerable(false);
+//        hitEntity.hurt(owner.level().damageSources().arrow(abstractArrow, owner), this.type.getAttackDamageBonus());
+        if (owner instanceof Player player) {
+            hitEntity.invulnerableTime = 0;
+            hitEntity.setInvulnerable(false);
+            hitEntity.hurtDuration = 0;
+            hitEntity.hurtTime = 0;
+            hitEntity.hurtMarked = false;
+            // hitEntity.handleDamageEvent(owner.level().damageSources().generic());
+            owner.setLastHurtMob(null);
+            hitEntity.setLastHurtByMob(null);
+            hitEntity.setLastHurtByPlayer(null);
+
+            hitEntity.hurt(owner.level().damageSources().generic(), this.type.getAttackDamageBonus());
+        }
 
         ModArrow modArrow = abstractArrow instanceof ModArrow ? (ModArrow) abstractArrow : null;
 

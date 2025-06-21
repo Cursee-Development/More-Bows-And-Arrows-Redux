@@ -5,7 +5,6 @@ import com.cursee.more_bows_and_arrows.MoreBowsAndArrows;
 import com.cursee.more_bows_and_arrows.core.ModConfig;
 import com.cursee.more_bows_and_arrows.core.world.entity.projectile.util.ArrowType;
 import com.cursee.more_bows_and_arrows.platform.Services;
-import com.google.common.collect.Lists;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,7 +21,7 @@ public class ModTabs {
             Component.translatable("itemGroup.moreBowsAndArrows"),
             (itemDisplayParameters, output) -> {
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.ANTI_GRAVITY, ModEnchantments.ANTI_GRAVITY.getMaxLevel())));
-                output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.BONUS_SHOT, ModEnchantments.BONUS_SHOT.getMaxLevel())));
+                output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.DEFENSIVE_SHOT, ModEnchantments.DEFENSIVE_SHOT.getMaxLevel())));
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.FLUID_MOVEMENT, ModEnchantments.FLUID_MOVEMENT.getMaxLevel())));
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.MONSTER_HUNTER, ModEnchantments.MONSTER_HUNTER.getMaxLevel())));
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.QUICK_PULL, ModEnchantments.QUICK_PULL.getMaxLevel())));

@@ -20,7 +20,7 @@ public class UtilMixin {
     @Inject(method = "doFetchChoiceType", at = @At(value = "HEAD"))
     private static void more_bows_and_arrows$doFetchChoiceType(DSL.TypeReference p_type, String choiceName, CallbackInfoReturnable<Type<?>> cir) {
         // if (Services.PLATFORM.getEnvironmentName().equalsIgnoreCase("fabric") && !more_bows_and_arrows$sent && choiceName.contains("more_bows_and_arrows:")) {
-        if (!more_bows_and_arrows$sent && choiceName.contains("more_bows_and_arrows:")) {
+        if (Services.PLATFORM.getPlatformName().equalsIgnoreCase("fabric" )&& !more_bows_and_arrows$sent && choiceName.contains("more_bows_and_arrows:")) {
             Constants.LOG.info("(you can ignore these errors: \"No data fixer registered for more_bows_and_arrows:...\")");
             more_bows_and_arrows$sent = true;
         }

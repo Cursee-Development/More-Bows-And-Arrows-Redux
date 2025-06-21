@@ -32,7 +32,7 @@ public class MoreBowsAndArrowsClient {
 //        }));
         ItemProperties.register(item, new ResourceLocation("pull"), ((itemStack, clientLevel, livingEntity, i) -> {
             if (livingEntity == null || livingEntity.getUseItem() != itemStack) return 0.0f;
-            float duration = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.BONUS_SHOT, itemStack) > 0 ? 10.0f : 20.0f;
+            float duration = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.DEFENSIVE_SHOT, itemStack) > 0 ? 10.0f : 20.0f;
             return (float) (itemStack.getUseDuration() - livingEntity.getUseItemRemainingTicks()) / duration;
         }));
 

@@ -109,6 +109,33 @@ public interface IModArrow {
 
         ModBowItem bow = stack.getItem() instanceof ModBowItem ? (ModBowItem) stack.getItem() : null;
 
+        if (owner instanceof Player player && player.level() != null) {
+            hitEntity.invulnerableTime = 0;
+            hitEntity.setInvulnerable(false);
+            hitEntity.hurtDuration = 0;
+            hitEntity.hurtTime = 0;
+            hitEntity.hurtMarked = false;
+            // hitEntity.handleDamageEvent(owner.level().damageSources().generic());
+            player.setLastHurtMob(null);
+            hitEntity.setLastHurtByMob(null);
+            hitEntity.setLastHurtByPlayer(null);
+
+            hitEntity.hurt(owner.level().damageSources().generic(), getArrowType().getAttackDamageBonus());
+        }
+        else if (hitEntity instanceof Player player && owner == null) {
+            player.invulnerableTime = 0;
+            player.setInvulnerable(false);
+            player.hurtDuration = 0;
+            player.hurtTime = 0;
+            player.hurtMarked = false;
+            // hitEntity.handleDamageEvent(owner.level().damageSources().generic());
+            player.setLastHurtMob(null); // literally sets it to null in its own code, tf is this warning lol
+            player.setLastHurtByMob(null);
+            player.setLastHurtByPlayer(null);
+
+            player.hurt(player.level().damageSources().generic(), getArrowType().getAttackDamageBonus());
+        }
+
         switch (getArrowType()) {
             case BLAZE_ROD -> {
                 hitEntity.setSecondsOnFire(2);

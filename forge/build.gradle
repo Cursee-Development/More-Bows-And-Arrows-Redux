@@ -50,6 +50,8 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
 
     modApi "curse.maven:monolib-968432:6544057"
+
+    modImplementation "curse.maven:retro-damage-indicators-1003431:5268035"
 }
 
 jar {

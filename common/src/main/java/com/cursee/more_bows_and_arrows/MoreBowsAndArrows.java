@@ -13,7 +13,7 @@ public class MoreBowsAndArrows {
     }
 
     public static void afterRegistration() {
-        ModDispenserBlockBehaviors.init();
+        // ModDispenserBlockBehaviors.init();
     }
 
     public static ResourceLocation identifier(String path) {

@@ -12,8 +12,8 @@ public class MoreBowsAndArrowsFabric implements ModInitializer {
         MoreBowsAndArrows.init();
         ModRegistryFabric.register();
 
-        MoreBowsAndArrows.afterRegistration();
-        ModDispenserBlockBehaviors.BEHAVIOR_FROM_ITEM_MAP.forEach(DispenserBlock::registerBehavior);
+        // MoreBowsAndArrows.afterRegistration();
+        // ModDispenserBlockBehaviors.BEHAVIOR_FROM_ITEM_MAP.forEach(DispenserBlock::registerBehavior);
 
 //        ServerLifecycleEvents.SERVER_STARTING.register(minecraftServer -> {
 //            ServerConfig.onLoad();

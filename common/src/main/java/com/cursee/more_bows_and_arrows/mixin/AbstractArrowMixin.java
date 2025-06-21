@@ -22,10 +22,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(AbstractArrow.class)
 public class AbstractArrowMixin {
 
-    @Inject(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+
+
+//    @Inject(method = "onHitEntity", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/Entity;hurt(Lnet/minecraft/world/damagesource/DamageSource;F)Z"))
+//    private void more_bows_and_arrows$onHitEntity$hurt(EntityHitResult result, CallbackInfo ci) {
+    @Inject(method = "onHitEntity", at = @At(value = "TAIL"))
     private void more_bows_and_arrows$onHitEntity$hurt(EntityHitResult result, CallbackInfo ci) {
 
         AbstractArrow arrow = (AbstractArrow) (Object) this;
+
+        if (arrow.level().isClientSide()) return;
 
         if (!(arrow.getOwner() instanceof LivingEntity owner)) return;
 
