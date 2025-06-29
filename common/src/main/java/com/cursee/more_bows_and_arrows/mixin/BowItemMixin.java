@@ -6,6 +6,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemStack;
@@ -51,6 +52,7 @@ public class BowItemMixin {
                 BlockPos nearestPos = nearby.get(0).blockPosition();
 
                 Arrow arrow = new Arrow(level, player);
+                arrow.pickup = AbstractArrow.Pickup.DISALLOWED;
                 // arrow.shoot(nearestPos.getX(), nearestPos.getY(), nearestPos.getZ(), 8.0f, 0);
 
                 double d0 = nearestPos.getX() - arrow.getX();
@@ -80,6 +82,8 @@ public class BowItemMixin {
         if (bonusShotLevel > 0) {
             for (int amount=0; amount<bonusShotLevel; amount++) {
                 Arrow arrow = new Arrow(level, player);
+
+                arrow.pickup = AbstractArrow.Pickup.DISALLOWED;
 
                 arrow.shootFromRotation(player, player.getXRot(), player.getYRot(), 0, f * 3, f * 20.0f);
 

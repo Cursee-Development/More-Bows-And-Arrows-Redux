@@ -21,6 +21,7 @@ public class ModTabs {
             Component.translatable("itemGroup.moreBowsAndArrows"),
             (itemDisplayParameters, output) -> {
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.ANTI_GRAVITY, ModEnchantments.ANTI_GRAVITY.getMaxLevel())));
+                output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.BONUS_SHOT, ModEnchantments.BONUS_SHOT.getMaxLevel())));
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.DEFENSIVE_SHOT, ModEnchantments.DEFENSIVE_SHOT.getMaxLevel())));
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.FLUID_MOVEMENT, ModEnchantments.FLUID_MOVEMENT.getMaxLevel())));
                 output.accept(EnchantedBookItem.createForEnchantment(new EnchantmentInstance(ModEnchantments.MONSTER_HUNTER, ModEnchantments.MONSTER_HUNTER.getMaxLevel())));
