@@ -143,7 +143,7 @@ public class BowItemMixin {
 //    }
 
     @Unique
-    public static float more_bows_and_arrows$getPowerForTime(ItemStack stack, int charge) {
+    private static float more_bows_and_arrows$getPowerForTime(ItemStack stack, int charge) {
 
         float amount = 20.0f;
 

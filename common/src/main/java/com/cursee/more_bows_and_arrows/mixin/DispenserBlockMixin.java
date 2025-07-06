@@ -27,7 +27,7 @@ public class DispenserBlockMixin {
     private void more_bows_and_arrows$getDispenseMethod(Level level, ItemStack item, CallbackInfoReturnable<DispenseItemBehavior> cir) {
         if (more_bows_and_arrows$registeredDispenseBehaviors) return;
         for (ArrowType type : ArrowType.values()){
-            DispenserBlock.registerBehavior(ModItems.ARROW_ITEM_FROM_TYPE_MAP.get(type), new ProjectileDispenseBehavior(item.getItem()));
+            DispenserBlock.registerBehavior(ModItems.ARROW_ITEM_FROM_TYPE_MAP.get(type).get(), new ProjectileDispenseBehavior(item.getItem()));
 //            DispenserBlock.registerBehavior(ModItems.ARROW_ITEM_FROM_TYPE_MAP.get(type), new ProjectileDispenseBehavior(item.getItem()) {
 //
 //                private Projectile getProjectile(Level level, Position position, ItemStack itemStack) {

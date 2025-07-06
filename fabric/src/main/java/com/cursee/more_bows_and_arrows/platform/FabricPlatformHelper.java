@@ -1,7 +1,10 @@
 package com.cursee.more_bows_and_arrows.platform;
 
+import com.cursee.more_bows_and_arrows.Constants;
 import com.cursee.more_bows_and_arrows.MoreBowsAndArrows;
 import com.cursee.more_bows_and_arrows.core.registry.ModEnchantmentEntityEffects;
+import com.cursee.more_bows_and_arrows.core.util.DeferredRegistryObject;
+import com.cursee.more_bows_and_arrows.core.util.FabricDeferredRegistryObject;
 import com.cursee.more_bows_and_arrows.core.world.item.enchantment.ModEnchantment;
 import com.cursee.more_bows_and_arrows.platform.services.IPlatformHelper;
 import com.mojang.serialization.MapCodec;
@@ -11,6 +14,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -69,16 +73,12 @@ public class FabricPlatformHelper implements IPlatformHelper {
         return Registry.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, MoreBowsAndArrows.identifier(name), codec);
     }
 
+    public <T, U extends T> DeferredRegistryObject<U> register(Registry<T> objRegistry, String objName, Supplier<U> objSupplier) {
+        return new FabricDeferredRegistryObject<>(Registry.register(objRegistry, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, objName), objSupplier.get()));
+    }
+
     @Override
-    public MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment) {
-        return switch (enchantment) {
-            case ANTI_GRAVITY -> ModEnchantmentEntityEffects.ANTI_GRAVITY;
-            case BONUS_SHOT -> ModEnchantmentEntityEffects.BONUS_SHOT;
-            case DEFENSIVE_SHOT -> ModEnchantmentEntityEffects.DEFENSIVE_SHOT;
-            case FLUID_MOVEMENT -> ModEnchantmentEntityEffects.FLUID_MOVEMENT;
-            case MONSTER_HUNTER -> ModEnchantmentEntityEffects.MONSTER_HUNTER;
-            case QUICK_PULL -> ModEnchantmentEntityEffects.QUICK_PULL;
-            case TEMPO_THIEF -> ModEnchantmentEntityEffects.TEMPO_THIEF;
-        };
+    public CreativeModeTab.Builder tabBuilder() {
+        return FabricItemGroup.builder();
     }
 }

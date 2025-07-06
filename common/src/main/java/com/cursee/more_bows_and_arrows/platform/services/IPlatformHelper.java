@@ -1,8 +1,10 @@
 package com.cursee.more_bows_and_arrows.platform.services;
 
+import com.cursee.more_bows_and_arrows.core.util.DeferredRegistryObject;
 import com.cursee.more_bows_and_arrows.core.world.item.enchantment.AntiGravityEnchantmentEffect;
 import com.cursee.more_bows_and_arrows.core.world.item.enchantment.ModEnchantment;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -70,5 +72,9 @@ public interface IPlatformHelper {
 
     <T extends EnchantmentEntityEffect> MapCodec<T> createEnchantmentEffect(String name, MapCodec<T> codec);
 
-    MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment);
+    // MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment);
+
+    <T, U extends T> DeferredRegistryObject<U> register(Registry<T> objRegistry, String objName, Supplier<U> objSupplier);
+
+    CreativeModeTab.Builder tabBuilder();
 }

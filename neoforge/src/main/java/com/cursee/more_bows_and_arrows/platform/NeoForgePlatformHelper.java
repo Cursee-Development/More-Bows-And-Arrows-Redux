@@ -5,9 +5,13 @@ import com.cursee.more_bows_and_arrows.MoreBowsAndArrows;
 import com.cursee.more_bows_and_arrows.MoreBowsAndArrowsNeoForge;
 import com.cursee.more_bows_and_arrows.core.registry.ModEnchantmentEntityEffects;
 import com.cursee.more_bows_and_arrows.core.registry.ModEnchantmentEntityEffectsNeoForge;
+import com.cursee.more_bows_and_arrows.core.util.DeferredRegistryObject;
+import com.cursee.more_bows_and_arrows.core.util.NeoForgeDeferredRegistryObject;
+import com.cursee.more_bows_and_arrows.core.util.NeoForgeRegistryHelper;
 import com.cursee.more_bows_and_arrows.core.world.item.enchantment.ModEnchantment;
 import com.cursee.more_bows_and_arrows.platform.services.IPlatformHelper;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -83,17 +87,23 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
         return null;
     }
 
+//    @Override
+//    public MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment) {
+//        return switch (enchantment) {
+//            case ANTI_GRAVITY -> ModEnchantmentEntityEffectsNeoForge.ANTI_GRAVITY.get();
+//            case BONUS_SHOT -> ModEnchantmentEntityEffectsNeoForge.BONUS_SHOT.get();
+//            case DEFENSIVE_SHOT -> ModEnchantmentEntityEffectsNeoForge.DEFENSIVE_SHOT.get();
+//            case FLUID_MOVEMENT -> ModEnchantmentEntityEffectsNeoForge.FLUID_MOVEMENT.get();
+//            case MONSTER_HUNTER -> ModEnchantmentEntityEffectsNeoForge.MONSTER_HUNTER.get();
+//            case QUICK_PULL -> ModEnchantmentEntityEffectsNeoForge.QUICK_PULL.get();
+//            case TEMPO_THIEF -> ModEnchantmentEntityEffectsNeoForge.TEMPO_THIEF.get();
+//        };
+//    }
+
     @Override
-    public MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment) {
-        return switch (enchantment) {
-            case ANTI_GRAVITY -> ModEnchantmentEntityEffectsNeoForge.ANTI_GRAVITY.get();
-            case BONUS_SHOT -> ModEnchantmentEntityEffectsNeoForge.BONUS_SHOT.get();
-            case DEFENSIVE_SHOT -> ModEnchantmentEntityEffectsNeoForge.DEFENSIVE_SHOT.get();
-            case FLUID_MOVEMENT -> ModEnchantmentEntityEffectsNeoForge.FLUID_MOVEMENT.get();
-            case MONSTER_HUNTER -> ModEnchantmentEntityEffectsNeoForge.MONSTER_HUNTER.get();
-            case QUICK_PULL -> ModEnchantmentEntityEffectsNeoForge.QUICK_PULL.get();
-            case TEMPO_THIEF -> ModEnchantmentEntityEffectsNeoForge.TEMPO_THIEF.get();
-        };
+    public <T, U extends T> DeferredRegistryObject<U> register(Registry<T> objRegistry, String objName, Supplier<U> objSupplier) {
+        DeferredRegister<T> registry = NeoForgeRegistryHelper.deferredRegisterFor(objRegistry);
+        return new NeoForgeDeferredRegistryObject<>(registry.register(objName, objSupplier));
     }
 
     //    public static boolean assigned = false;
@@ -109,4 +119,9 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 //
 //        return ENTITY_ENCHANTMENT_EFFECTS.register(name, () -> codec).get();
 //    }
+
+    @Override
+    public CreativeModeTab.Builder tabBuilder() {
+        return CreativeModeTab.builder();
+    }
 }

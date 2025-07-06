@@ -2,7 +2,7 @@ package com.cursee.more_bows_and_arrows;
 
 import com.cursee.monolib.core.sailing.Sailing;
 import com.cursee.more_bows_and_arrows.core.ModConfig;
-import com.cursee.more_bows_and_arrows.core.registry.ModEnchantments;
+import com.cursee.more_bows_and_arrows.core.registry.*;
 import com.cursee.more_bows_and_arrows.core.world.item.util.BowType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +13,11 @@ public class MoreBowsAndArrows {
     public static void init() {
         Sailing.register(Constants.MOD_ID, Constants.MOD_NAME, Constants.MOD_VERSION, Constants.MOD_PUBLISHER, Constants.MOD_URL);
         ModConfig.onLoad();
+
+        ModItems.loadClass();
+        ModTabs.loadClass();
+        ModEntities.loadClass();
+        ModEnchantmentEntityEffects.loadClass();
 
         ModEnchantments.createResourceKeys();
 //        TagKey.create(Registries.ITEM, identifier("mod_bows"));

@@ -49,7 +49,7 @@ public class AbstractArrowMixin {
         List<Object2IntMap.Entry<Holder<Enchantment>>> list = EnchantmentHelper.getEnchantmentsForCrafting(mainHandItem).entrySet().stream().toList();
 
         for (Object2IntMap.Entry<Holder<Enchantment>> entry : list) {
-            if (entry.getKey().is(ModEnchantments.TEMPO_THIEF) || mainHandItem.is(ModItems.BOW_ITEM_FROM_TYPE_MAP.get(BowType.NOCTURNAL))) {
+            if (entry.getKey().is(ModEnchantments.TEMPO_THIEF) || mainHandItem.is(ModItems.BOW_ITEM_FROM_TYPE_MAP.get(BowType.NOCTURNAL).get())) {
                 hitEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * 5, 2));
                 owner.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 20 * 5, 1));
                 break;

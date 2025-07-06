@@ -3,9 +3,13 @@ package com.cursee.more_bows_and_arrows.platform;
 import com.cursee.more_bows_and_arrows.MoreBowsAndArrows;
 import com.cursee.more_bows_and_arrows.MoreBowsAndArrowsForge;
 import com.cursee.more_bows_and_arrows.core.registry.ModEnchantmentEntityEffects;
+import com.cursee.more_bows_and_arrows.core.util.DeferredRegistryObject;
+import com.cursee.more_bows_and_arrows.core.util.ForgeDeferredRegistryObject;
+import com.cursee.more_bows_and_arrows.core.util.ForgeRegistryHelper;
 import com.cursee.more_bows_and_arrows.core.world.item.enchantment.ModEnchantment;
 import com.cursee.more_bows_and_arrows.platform.services.IPlatformHelper;
 import com.mojang.serialization.MapCodec;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -22,6 +26,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.minecraftforge.fml.loading.FMLPaths;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -85,16 +90,28 @@ public class ForgePlatformHelper implements IPlatformHelper {
         return (MapCodec<T>) reference.get();
     }
 
+//    @Override
+//    public MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment) {
+//        return switch (enchantment) {
+//            case ANTI_GRAVITY -> ModEnchantmentEntityEffects.ANTI_GRAVITY;
+//            case BONUS_SHOT -> ModEnchantmentEntityEffects.BONUS_SHOT;
+//            case DEFENSIVE_SHOT -> ModEnchantmentEntityEffects.DEFENSIVE_SHOT;
+//            case FLUID_MOVEMENT -> ModEnchantmentEntityEffects.FLUID_MOVEMENT;
+//            case MONSTER_HUNTER -> ModEnchantmentEntityEffects.MONSTER_HUNTER;
+//            case QUICK_PULL -> ModEnchantmentEntityEffects.QUICK_PULL;
+//            case TEMPO_THIEF -> ModEnchantmentEntityEffects.TEMPO_THIEF;
+//        };
+//    }
+
+
     @Override
-    public MapCodec<? extends EnchantmentEntityEffect> getEnchantmentReference(ModEnchantment enchantment) {
-        return switch (enchantment) {
-            case ANTI_GRAVITY -> ModEnchantmentEntityEffects.ANTI_GRAVITY;
-            case BONUS_SHOT -> ModEnchantmentEntityEffects.BONUS_SHOT;
-            case DEFENSIVE_SHOT -> ModEnchantmentEntityEffects.DEFENSIVE_SHOT;
-            case FLUID_MOVEMENT -> ModEnchantmentEntityEffects.FLUID_MOVEMENT;
-            case MONSTER_HUNTER -> ModEnchantmentEntityEffects.MONSTER_HUNTER;
-            case QUICK_PULL -> ModEnchantmentEntityEffects.QUICK_PULL;
-            case TEMPO_THIEF -> ModEnchantmentEntityEffects.TEMPO_THIEF;
-        };
+    public <T, U extends T> DeferredRegistryObject<U> register(Registry<T> objRegistry, String objName, Supplier<U> objSupplier) {
+        DeferredRegister<T> registry = ForgeRegistryHelper.deferredRegisterFor(objRegistry);
+        return new ForgeDeferredRegistryObject<>(registry.register(objName, objSupplier));
+    }
+
+    @Override
+    public CreativeModeTab.Builder tabBuilder() {
+        return CreativeModeTab.builder();
     }
 }
