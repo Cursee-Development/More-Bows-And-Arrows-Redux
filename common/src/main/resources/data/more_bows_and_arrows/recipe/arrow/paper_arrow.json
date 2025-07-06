@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "C",
+      "S",
+      "F"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:flint"
+    },
+    "S": {
+      "item": "minecraft:paper"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+      "id": "more_bows_and_arrows:paper_arrow",
+      "count": 4
+  }
+}

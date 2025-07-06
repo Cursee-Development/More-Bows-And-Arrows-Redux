@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "more_bows_and_arrows:anti_gravity",
+    "more_bows_and_arrows:bonus_shot",
+    "more_bows_and_arrows:defensive_shot",
+    "more_bows_and_arrows:fluid_movement",
+    "more_bows_and_arrows:monster_hunter",
+    "more_bows_and_arrows:quick_pull",
+    "more_bows_and_arrows:tempo_thief"
+  ]
+}

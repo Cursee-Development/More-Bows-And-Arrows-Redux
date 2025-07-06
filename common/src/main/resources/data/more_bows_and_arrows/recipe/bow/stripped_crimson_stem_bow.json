@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:stripped_crimson_stem"
+      },
+      {
+        "item": "minecraft:stripped_crimson_hyphae"
+      }
+    ],
+    "X": {
+      "item": "minecraft:bow"
+    }
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:stripped_crimson_stem_bow"
+  },
+  "show_notification": true
+}

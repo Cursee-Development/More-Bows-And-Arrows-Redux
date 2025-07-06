@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:spruce_log"
+      },
+      {
+        "item": "minecraft:spruce_wood"
+      }
+    ],
+    "X": {
+      "item": "minecraft:bow"
+    }
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:spruce_bow"
+  },
+  "show_notification": true
+}
