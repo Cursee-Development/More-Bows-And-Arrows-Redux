@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.cursee.examplemod.ExampleModFabric"
+            "com.cursee.more_bows_and_arrows.MoreBowsAndArrowsFabric"
         ],
         "client": [
-            "com.cursee.examplemod.ExampleModClientFabric"
+            "com.cursee.more_bows_and_arrows.MoreBowsAndArrowsClientFabric"
         ]
     },
     "mixins": [

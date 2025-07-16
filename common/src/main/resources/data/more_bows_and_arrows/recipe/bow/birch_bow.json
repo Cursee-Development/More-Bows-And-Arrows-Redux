@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:birch_log"
+      },
+      {
+        "item": "minecraft:birch_wood"
+      }
+    ],
+    "X": {
+      "item": "minecraft:bow"
+    }
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:birch_bow"
+  },
+  "show_notification": true
+}

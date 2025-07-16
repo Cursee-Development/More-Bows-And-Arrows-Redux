@@ -1,0 +1,23 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.cursee.more_bows_and_arrows.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AbstractArrowMixin",
+    "ArrowItemMixin",
+    "BowItemMixin",
+    "DispenserBlockMixin",
+    "ItemMixin",
+    "UtilMixin"
+  ],
+  "client": [
+    "AbstractClientPlayerMixin",
+    "ItemInHandRendererMixin",
+    "MinecraftMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

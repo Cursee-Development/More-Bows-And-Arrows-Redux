@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "more_bows_and_arrows:netherite_bow"
+  },
+  "result": {
+    "count": 1,
+    "id": "more_bows_and_arrows:nocturnal_bow"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

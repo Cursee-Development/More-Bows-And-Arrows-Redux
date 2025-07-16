@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "C",
+      "S",
+      "F"
+      
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    }
+  },
+  "result": {
+      "id": "more_bows_and_arrows:netherite_arrow",
+      "count": 4
+  }
+}
