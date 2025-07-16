@@ -6,7 +6,7 @@ plugins {
 neoForge {
     version = neoforge_version
     // Automatically enable neoforge AccessTransformers if the file exists
-    def at = project(':common').file('src/main/resources/META-INF/neoaccesstransformer.cfg')
+    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
         accessTransformers.from(at.absolutePath)
     }
@@ -38,6 +38,7 @@ neoForge {
 
 dependencies {
     implementation "curse.maven:monolib-968432:6544086"
+    implementation "curse.maven:jei-238222:5846880"
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
