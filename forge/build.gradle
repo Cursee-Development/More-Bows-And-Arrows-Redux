@@ -13,12 +13,17 @@ mixin {
 legacyForge {
     version = "${minecraft_version}-${forge_version}"
 
-    validateAccessTransformers = true
+    // validateAccessTransformers = true
 
 //    if (file("./src/main/resources/META-INF/accesstransformer.cfg").exists()) {
 //        println 'forge at exists'
 //        accessTransformers.from "./src/main/resources/META-INF/accesstransformer.cfg"
 //    }
+
+    if (file("./src/main/resources/META-INF/accesstransformer2.cfg").exists()) {
+        println 'forge AT exists'
+        accessTransformers.from "./src/main/resources/META-INF/accesstransformer2.cfg"
+    }
     parchment {
         minecraftVersion = parchment_minecraft
         mappingsVersion = parchment_version
@@ -52,6 +57,8 @@ dependencies {
     modApi "curse.maven:monolib-968432:6544057"
 
     modImplementation "curse.maven:retro-damage-indicators-1003431:5268035"
+
+    modImplementation "curse.maven:unionlib-367806:6813331"
 }
 
 jar {

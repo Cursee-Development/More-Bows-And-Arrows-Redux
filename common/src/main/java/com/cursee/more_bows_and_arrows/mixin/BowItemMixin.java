@@ -16,24 +16,37 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
 
-@Mixin(BowItem.class)
+@Mixin(value = BowItem.class, priority = 1)
 public class BowItemMixin {
 
     private ItemStack more_bows_and_arrows$stack;
+    private int more_bows_and_arrows$chargeTime;
 
-    @Redirect(method = "releaseUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BowItem;getPowerForTime(I)F"))
-    private float injected(int charge) {
-        return more_bows_and_arrows$getPowerForTime(more_bows_and_arrows$stack, charge);
+//    @Redirect(method = "releaseUsing", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/BowItem;getPowerForTime(I)F"))
+//    private float injected(int charge) {
+//        return more_bows_and_arrows$getPowerForTime(more_bows_and_arrows$stack, charge);
+//    }
+
+    @ModifyVariable(method = "releaseUsing", at = @At("STORE"), ordinal = 0)
+    private float modifyPowerForTime(float originalPower) {
+        // Use our custom power calculation instead of the original
+        float f = more_bows_and_arrows$getPowerForTime(more_bows_and_arrows$stack, more_bows_and_arrows$chargeTime);
+        System.out.println(f);
+        return f;
     }
 
     @Inject(method = "releaseUsing", at = @At("HEAD"))
     private void more_bows_and_arrows$releaseUsing$handleDefensiveShot(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft, CallbackInfo ci) {
         more_bows_and_arrows$stack = stack;
+
+        BowItem self = (BowItem) (Object) this;
+        more_bows_and_arrows$chargeTime = self.getUseDuration(stack) - timeLeft;
 
         if (!(entityLiving instanceof Player player)) return;
         // if (player.getProjectile(stack).isEmpty() || !(player.getAbilities().instabuild || EnchantmentHelper.getItemEnchantmentLevel(Enchantments.INFINITY_ARROWS, stack) > 0)) return;
@@ -70,6 +83,9 @@ public class BowItemMixin {
     @Inject(method = "releaseUsing", at = @At("HEAD"))
     private void more_bows_and_arrows$releaseUsing$handleBonusShot(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft, CallbackInfo ci) {
         more_bows_and_arrows$stack = stack;
+
+        BowItem self = (BowItem) (Object) this;
+        more_bows_and_arrows$chargeTime = self.getUseDuration(stack) - timeLeft;
 
         if (!(entityLiving instanceof Player player)) return;
         if (player.getProjectile(stack).isEmpty()) return;

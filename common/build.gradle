@@ -9,7 +9,7 @@ legacyForge {
     // validateAccessTransformers = true
 
     if (file("./src/main/resources/META-INF/accesstransformer.cfg").exists()) {
-        println 'common at exists'
+        println 'common AT exists'
         accessTransformers.from "./src/main/resources/META-INF/accesstransformer.cfg"
     }
     parchment {
