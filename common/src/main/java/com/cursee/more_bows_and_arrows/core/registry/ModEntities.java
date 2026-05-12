@@ -6,7 +6,7 @@ import com.cursee.more_bows_and_arrows.core.world.entity.projectile.ModArrow;
 import com.cursee.more_bows_and_arrows.core.world.entity.projectile.util.ArrowType;
 import com.cursee.more_bows_and_arrows.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 

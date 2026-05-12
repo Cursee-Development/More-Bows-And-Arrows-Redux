@@ -4,15 +4,15 @@ import com.cursee.more_bows_and_arrows.Constants;
 import com.cursee.more_bows_and_arrows.MoreBowsAndArrows;
 import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.List;
 
 public enum ArrowType {
 
     /// {@link TippableArrowRenderer#NORMAL_ARROW_LOCATION}
-    NORMAL(0 , ResourceLocation.withDefaultNamespace("textures/entity/projectiles/arrow.png")),
-    REALLY_BIG(0, ResourceLocation.withDefaultNamespace("textures/entity/projectiles/arrow.png")),
+    NORMAL(0 , Identifier.withDefaultNamespace("textures/entity/projectiles/arrow.png")),
+    REALLY_BIG(0, Identifier.withDefaultNamespace("textures/entity/projectiles/arrow.png")),
 
     AMETHYST(3, MoreBowsAndArrows.identifier("textures/entity/arrow/amethyst_arrow.png")),
     BAMBOO(1, MoreBowsAndArrows.identifier("textures/entity/arrow/bamboo_arrow.png")),
@@ -36,9 +36,9 @@ public enum ArrowType {
     TNT(5, MoreBowsAndArrows.identifier("textures/entity/arrow/tnt_arrow.png"));
 
     private final float damageBonus;
-    private final ResourceLocation textureLocation;
+    private final Identifier textureLocation;
 
-    ArrowType(float damageBonus, ResourceLocation textureLocation) {
+    ArrowType(float damageBonus, Identifier textureLocation) {
         this.damageBonus = damageBonus;
         this.textureLocation = textureLocation;
     }
@@ -46,7 +46,7 @@ public enum ArrowType {
     public float getAttackDamageBonus() {
         return this.damageBonus;
     }
-    public ResourceLocation getTextureLocation() {
+    public Identifier getTextureLocation() {
         return this.textureLocation;
     }
 

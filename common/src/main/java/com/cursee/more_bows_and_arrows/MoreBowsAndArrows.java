@@ -5,7 +5,7 @@ import com.cursee.more_bows_and_arrows.core.ModConfig;
 import com.cursee.more_bows_and_arrows.core.registry.*;
 import com.cursee.more_bows_and_arrows.core.world.item.util.BowType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 
 public class MoreBowsAndArrows {
@@ -31,7 +31,7 @@ public class MoreBowsAndArrows {
         // ModDispenserBlockBehaviors.init();
     }
 
-    public static ResourceLocation identifier(String path) {
-        return ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, path);
+    public static Identifier identifier(String path) {
+        return Identifier.fromNamespaceAndPath(Constants.MOD_ID, path);
     }
 }

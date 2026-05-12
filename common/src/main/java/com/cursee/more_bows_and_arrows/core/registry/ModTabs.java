@@ -10,7 +10,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
@@ -87,7 +87,7 @@ public class ModTabs {
 //                });
 //            });
 //
-//    public static void register(BiConsumer<CreativeModeTab, ResourceLocation> consumer) {
+//    public static void register(BiConsumer<CreativeModeTab, Identifier> consumer) {
 //        consumer.accept(MORE_BOWS_AND_ARROWS, MoreBowsAndArrows.identifier(Constants.MOD_ID));
 //    }
 }

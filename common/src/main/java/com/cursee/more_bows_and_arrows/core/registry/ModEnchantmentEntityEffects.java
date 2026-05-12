@@ -6,7 +6,7 @@ import com.cursee.more_bows_and_arrows.core.world.item.enchantment.*;
 import com.cursee.more_bows_and_arrows.platform.Services;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.enchantment.effects.EnchantmentEntityEffect;
 
 import java.util.function.BiConsumer;
@@ -21,7 +21,7 @@ public class ModEnchantmentEntityEffects {
     public static final DeferredRegistryObject<MapCodec<? extends EnchantmentEntityEffect>> QUICK_PULL = Services.PLATFORM.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, "quick_pull", () -> QuickPullEnchantmentEffect.CODEC);
     public static final DeferredRegistryObject<MapCodec<? extends EnchantmentEntityEffect>> TEMPO_THIEF = Services.PLATFORM.register(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, "tempo_thief", () -> TempoThiefEnchantmentEffect.CODEC);
 
-//    public static void register(BiConsumer<MapCodec<? extends EnchantmentEntityEffect>, ResourceLocation> consumer) {
+//    public static void register(BiConsumer<MapCodec<? extends EnchantmentEntityEffect>, Identifier> consumer) {
 //        if (!Services.PLATFORM.getPlatformName().equalsIgnoreCase("neoforge")) {
 //            consumer.accept(ANTI_GRAVITY, MoreBowsAndArrows.identifier("anti_gravity"));
 //            consumer.accept(BONUS_SHOT, MoreBowsAndArrows.identifier("bonus_shot"));

@@ -14,7 +14,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -74,7 +74,7 @@ public class FabricPlatformHelper implements IPlatformHelper {
     }
 
     public <T, U extends T> DeferredRegistryObject<U> register(Registry<T> objRegistry, String objName, Supplier<U> objSupplier) {
-        return new FabricDeferredRegistryObject<>(Registry.register(objRegistry, ResourceLocation.fromNamespaceAndPath(Constants.MOD_ID, objName), objSupplier.get()));
+        return new FabricDeferredRegistryObject<>(Registry.register(objRegistry, Identifier.fromNamespaceAndPath(Constants.MOD_ID, objName), objSupplier.get()));
     }
 
     @Override

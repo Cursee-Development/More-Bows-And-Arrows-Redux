@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class ModArrowRenderer extends ArrowRenderer<ModArrow> {
 
@@ -19,7 +19,7 @@ public class ModArrowRenderer extends ArrowRenderer<ModArrow> {
     }
 
     @Override
-    public ResourceLocation getTextureLocation(ModArrow arrow) {
+    public Identifier getTextureLocation(ModArrow arrow) {
         return this.type.getTextureLocation();
     }
 
