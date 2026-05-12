@@ -38,7 +38,7 @@ public class ModArrow extends AbstractArrow implements IModArrow {
     public ModArrow(ArrowType type, LivingEntity livingEntity, Level level, ItemStack weapon) {
         super(ModEntities.ENTITY_TYPE_FROM_TYPE_MAP.get(type).get(), livingEntity, level, new ItemStack(ModItems.ARROW_ITEM_FROM_TYPE_MAP.get(type).get()), weapon);
         this.type = type;
-        System.out.println("mod arrow created");
+        // System.out.println("mod arrow created");
     }
 
     @Override

@@ -43,7 +43,7 @@ public class ModArrowItem extends ArrowItem implements IModArrow {
 
     @Override
     public AbstractArrow createArrow(Level level, ItemStack ammo, LivingEntity shooter, @Nullable ItemStack weapon) {
-        System.out.println("createArrow from ModArrowItem");
+        // System.out.println("createArrow from ModArrowItem");
         ModArrow arrow = new ModArrow(this.type, shooter, level, weapon);
 
         if (this.type == ArrowType.BLAZE_ROD || (shooter.getMainHandItem().getItem() instanceof ModBowItem modBow && modBow.getBowType() == BowType.BLAZE)) {

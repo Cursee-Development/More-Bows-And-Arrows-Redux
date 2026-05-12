@@ -2,6 +2,11 @@ plugins {
     id 'multiloader-loader'
     id 'fabric-loom'
 }
+
+repositories {
+    maven {url 'https://nativelibs4java.sourceforge.net/maven/'}
+}
+
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
     mappings loom.layered {
@@ -14,6 +19,19 @@ dependencies {
     modImplementation "curse.maven:monolib-968432:6544075"
 
     modImplementation "curse.maven:jei-238222:6614390"
+
+//    // modImplementation project('fabric').file('lib/Hold My Items 1.21.1 v4.0.jar')
+//    implementation 'org.anarres.cpp:anarres-cpp-jnaerator:1.2.6-JNAerator.2'
+//    // Source: https://mvnrepository.com/artifact/org.anarres.cpp/anarres-cpp-jnaerator
+//    implementation 'org.anarres.cpp:anarres-cpp-jnaerator:1.2.6-JNAerator.2'
+    implementation("com.nativelibs4java:jnaerator:0.12") {
+        exclude group: 'asm', module: 'asm'
+    }
+    modImplementation fileTree(dir: 'lib', include: ['*.jar'])
+
+    // modImplementation "curse.maven:hold-my-items-1127359:6216891"
+    // modImplementation "curse.maven:sodium-394468:6382649"
+    // modImplementation "curse.maven:irisshaders-455508:6213635"
 }
 
 loom {

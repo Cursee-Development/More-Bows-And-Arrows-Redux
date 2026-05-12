@@ -21,12 +21,6 @@ public class MoreBowsAndArrowsClient {
 
     public static void init() {}
 
-    public static void registerArrowRenderers() {
-        ModEntities.ENTITY_TYPE_FROM_TYPE_MAP.forEach((type, modArrowEntityType) -> {
-            Services.REGISTER.registerEntityRenderer(modArrowEntityType.get(), context -> new ModArrowRenderer(context, type));
-        });
-    }
-
     public static void registerBowProperties() {
         ModItems.BOW_ITEM_FROM_TYPE_MAP.forEach((type, item) -> registerBowProperties(item.get()));
     }

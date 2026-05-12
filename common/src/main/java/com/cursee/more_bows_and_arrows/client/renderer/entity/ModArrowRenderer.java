@@ -31,7 +31,7 @@ public class ModArrowRenderer extends ArrowRenderer<ModArrow> {
 
     @Override
     public boolean shouldRender(ModArrow livingEntity, Frustum camera, double camX, double camY, double camZ) {
-        return true;
+        return super.shouldRender(livingEntity, camera, camX, camY, camZ);
     }
 
     //    @Override

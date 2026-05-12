@@ -73,7 +73,7 @@ public class ItemInHandRendererMixin {
 
         poseStack.popPose();
 
-        System.out.println("cancelled further logic");
+        // System.out.println("cancelled further logic");
         ci.cancel();
     }
 

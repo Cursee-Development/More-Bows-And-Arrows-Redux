@@ -142,8 +142,7 @@ public class ModBowItem extends BowItem {
     public void onUseTick(Level level, LivingEntity entity, ItemStack stack, int remainingUseDuration) {
         /// This call to the super's implementation does nothing, no need to invoke.
         // super.onUseTick(level, entity, stack, remainingUseDuration);
-        super.onUseTick(level, entity, stack, remainingUseDuration);
-        if (this.type == BowType.NOCTURNAL) ModParticleFunctions.nocturnalBowParticles(level, entity);
+        // if (this.type == BowType.NOCTURNAL) ModParticleFunctions.nocturnalBowParticles(level, entity);
     }
 
     @Override
