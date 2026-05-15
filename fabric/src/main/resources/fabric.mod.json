@@ -1,40 +1,39 @@
 {
-    "schemaVersion": 1,
-    "id": "${mod_id}",
-    "version": "${version}",
-    "name": "${mod_name}",
-    "description": "${description}",
-    "authors": [
-        "${mod_author}"
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description} ${credits}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "${mod_url}",
+    "sources": "${mod_url}"
+  },
+  "license": "${license}",
+  "icon": "${mod_id}.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.jason13official.more_bows_and_arrows.MoreBowsAndArrowsFabric"
     ],
-    "contact": {
-        "homepage": "https://github.com/Cursee-Development",
-        "sources": "https://github.com/Cursee-Development"
-    },
-    "license": "${license}",
-    "icon": "${mod_id}.png",
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "com.cursee.more_bows_and_arrows.MoreBowsAndArrowsFabric"
-        ],
-        "client": [
-            "com.cursee.more_bows_and_arrows.MoreBowsAndArrowsClientFabric"
-        ]
-    },
-    "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
-    ],
-    "depends": {
-        "fabricloader": ">=${fabric_loader_version}",
-        "fabric-api": "*",
-        "minecraft": "${fabric_minecraft_version_range}",
-        "java": ">=${java_version}",
-        "monolib": ">=2.1.0"
-    },
-    "suggests": {
-        "another-mod": "*"
-    }
+    "client": [
+      "io.github.jason13official.more_bows_and_arrows.MoreBowsAndArrowsClientFabric"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${fabric_minecraft_version_range}",
+    "java": ">=${java_version}"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
 }
   

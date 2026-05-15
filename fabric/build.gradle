@@ -17,9 +17,16 @@ dependencies {
 }
 
 tasks.named('shadowJar', com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+
     configurations = project.configurations.named('shadow').map { [it] }
 
-    relocate 'com.electronwill.nightconfig', 'io.github.jason13official.more_bows_and_arrows.shadow.nightconfig'
+    // archiveAppendix = 'appenSec'
+    // archiveExtension = ''
+
+    archiveClassifier = 'actual'
+
+    var newpath = 'io.github.jason13official.mod_id.shadow.nightconfig'.replace("mod_id", mod_id)
+    relocate 'com.electronwill.nightconfig', newpath
     // archiveClassifier.set('')
 }
 
@@ -29,7 +36,7 @@ jar {
 }
 
 loom {
-    def aw = project(':fabric').file("src/main/resources/${mod_id}.accesswidener")
+    def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {
         accessWidenerPath.set(aw)
     }
