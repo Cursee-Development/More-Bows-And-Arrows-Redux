@@ -1,5 +1,7 @@
 package io.github.jason13official.more_bows_and_arrows;
 
+import io.github.jason13official.more_bows_and_arrows.impl.common.ModConfig;
+import io.github.jason13official.more_bows_and_arrows.impl.common.network.packet.ConfigSyncS2CPacket;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModBlocks;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModEntities;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModItems;
@@ -7,6 +9,7 @@ import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModMe
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModParticles;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModTabs;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModTiles;
+import io.github.jason13official.more_bows_and_arrows.platform.Services;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import net.minecraft.core.Registry;
@@ -23,6 +26,9 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.loading.FMLLoader;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddServerReloadListenersEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 @Mod(Constants.MOD_ID)
@@ -42,7 +48,15 @@ public class MoreBowsAndArrowsNeoForge {
     bind(Registries.MENU, ModMenus::register);
     bind(Registries.CREATIVE_MODE_TAB, ModTabs::register);
 
-    EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> MoreBowsAndArrows.init());
+    EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> {
+      MoreBowsAndArrows.clientBoundPacketSender = PacketDistributor::sendToPlayer;
+      MoreBowsAndArrows.init();
+    });
+
+    EVENT_BUS.addListener((Consumer<RegisterPayloadHandlersEvent>) event -> {
+      PayloadRegistrar registrar = event.registrar(Constants.MOD_ID);
+      registrar.playToClient(ConfigSyncS2CPacket.TYPE, ConfigSyncS2CPacket.STREAM_CODEC);
+    });
 
     NeoForge.EVENT_BUS.addListener((Consumer<AddServerReloadListenersEvent>) event -> {
       event.addListener(MoreBowsAndArrows.identifier(Constants.MOD_ID), new ResourceReloadListener());
@@ -71,7 +85,7 @@ public class MoreBowsAndArrowsNeoForge {
 
     @Override
     protected void apply(Void unused, ResourceManager resourceManager, ProfilerFiller profilerFiller) {
-      // ModConfig.load(Services.PLATFORM.getConfigDirectory());
+      ModConfig.load(Services.PLATFORM.getConfigDirectory());
     }
 
     @Override
