@@ -16,8 +16,8 @@ import net.minecraft.world.item.Item.Properties;
 
 public class ModItems {
 
-  public static LinkedHashMap<Identifier, Item> BOWS = new LinkedHashMap<>();
-  public static LinkedHashMap<Identifier, Item> ARROWS = new LinkedHashMap<>();
+  public static LinkedHashMap<BowType, Item> BOWS = new LinkedHashMap<>();
+  public static LinkedHashMap<ArrowType, Item> ARROWS = new LinkedHashMap<>();
 
   public static void register(BiConsumer<Item, Identifier> consumer) {
 
@@ -26,18 +26,18 @@ public class ModItems {
 
     for (BowType type : BowType.values()) {
       BOWS.put(
-          bowId(type),
+          type,
           new ModBowItem(type, new Properties().setId(bowKey(type))));
     }
 
     for (ArrowType type : ArrowType.values()) {
       ARROWS.put(
-          arrowId(type),
+          type,
           new ModArrowItem(type, new Properties().setId(arrowKey(type))));
     }
 
-    BOWS.forEach((identifier, item) -> consumer.accept(item, identifier));
-    ARROWS.forEach((identifier, item) -> consumer.accept(item, identifier));
+    BOWS.forEach((type, item) -> consumer.accept(item, bowId(type)));
+    ARROWS.forEach((type, item) -> consumer.accept(item, arrowId(type)));
   }
 
   private static ResourceKey<Item> bowKey(BowType type) {
