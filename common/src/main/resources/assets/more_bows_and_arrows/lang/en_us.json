@@ -38,5 +38,26 @@
   "item.more_bows_and_arrows.stripped_mangrove_bow": "Stripped Mangrove Bow",
   "item.more_bows_and_arrows.stripped_oak_bow": "Stripped Oak Bow",
   "item.more_bows_and_arrows.stripped_spruce_bow": "Stripped Spruce Bow",
-  "item.more_bows_and_arrows.stripped_warped_stem_bow": "Stripped Warped Stem Bow"
+  "item.more_bows_and_arrows.stripped_warped_stem_bow": "Stripped Warped Stem Bow",
+
+  "item.more_bows_and_arrows.amethyst_arrow": "Amethyst Arrow",
+  "item.more_bows_and_arrows.bamboo_arrow": "Bamboo Arrow",
+  "item.more_bows_and_arrows.blaze_rod_arrow": "Blaze Rod Arrow",
+  "item.more_bows_and_arrows.bone_arrow": "Bone Arrow",
+  "item.more_bows_and_arrows.cactus_arrow": "Cactus Arrow",
+  "item.more_bows_and_arrows.coal_arrow": "Coal Arrow",
+  "item.more_bows_and_arrows.copper_arrow": "Copper Arrow",
+  "item.more_bows_and_arrows.diamond_arrow": "Diamond Arrow",
+  "item.more_bows_and_arrows.emerald_arrow": "Emerald Arrow",
+  "item.more_bows_and_arrows.ender_pearl_arrow": "Ender Pearl Arrow",
+  "item.more_bows_and_arrows.flint_and_steel_arrow": "Flint and Steel Arrow",
+  "item.more_bows_and_arrows.flint_arrow": "Flint Arrow",
+  "item.more_bows_and_arrows.gold_arrow": "Gold Arrow",
+  "item.more_bows_and_arrows.iron_arrow": "Iron Arrow",
+  "item.more_bows_and_arrows.lapis_arrow": "Lapis Arrow",
+  "item.more_bows_and_arrows.moss_arrow": "Moss Arrow",
+  "item.more_bows_and_arrows.netherite_arrow": "Netherite Arrow",
+  "item.more_bows_and_arrows.obsidian_arrow": "Obsidian Arrow",
+  "item.more_bows_and_arrows.paper_arrow": "Paper Arrow",
+  "item.more_bows_and_arrows.tnt_arrow": "TNT Arrow"
 }
