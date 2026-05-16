@@ -15,6 +15,8 @@ public class MoreBowsAndArrowsClientFabric implements ClientModInitializer {
     MoreBowsAndArrowsClient.serverBoundPacketSender = ClientPlayNetworking::send;
     MoreBowsAndArrowsClient.init();
 
+    // NETWORKING
+
     ClientPlayNetworking.registerGlobalReceiver(ConfigSyncS2CPacket.TYPE, (payload, context) -> {
       ModConfig.get().sync(payload);
     });
