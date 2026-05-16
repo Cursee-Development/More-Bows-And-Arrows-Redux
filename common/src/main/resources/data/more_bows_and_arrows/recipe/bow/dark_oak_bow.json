@@ -1,0 +1,20 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      "minecraft:dark_oak_log",
+      "minecraft:dark_oak_wood"
+    ],
+    "X": "minecraft:bow"
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:dark_oak_bow"
+  },
+  "show_notification": true
+}

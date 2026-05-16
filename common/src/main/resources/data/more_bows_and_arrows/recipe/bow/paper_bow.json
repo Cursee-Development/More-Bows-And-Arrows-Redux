@@ -1,0 +1,17 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": "minecraft:paper",
+    "X": "minecraft:bow"
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:paper_bow"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,20 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      "minecraft:jungle_log",
+      "minecraft:jungle_wood"
+    ],
+    "X": "minecraft:bow"
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:jungle_bow"
+  },
+  "show_notification": true
+}

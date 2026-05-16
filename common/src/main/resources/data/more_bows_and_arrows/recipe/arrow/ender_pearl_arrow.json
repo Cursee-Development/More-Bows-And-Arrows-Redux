@@ -1,0 +1,18 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "X",
+      "#",
+      "Y"
+      
+  ],
+  "key": {
+    "X": "minecraft:ender_pearl",
+    "#": "minecraft:stick",
+    "Y": "minecraft:feather"
+  },
+  "result": {
+      "id": "more_bows_and_arrows:ender_pearl_arrow",
+      "count": 4
+  }
+}

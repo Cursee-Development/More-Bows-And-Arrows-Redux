@@ -1,0 +1,18 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "X",
+      "#",
+      "Y"
+      
+  ],
+  "key": {
+    "X": "minecraft:tnt",
+    "#": "minecraft:stick",
+    "Y": "minecraft:feather"
+  },
+  "result": {
+      "id": "more_bows_and_arrows:tnt_arrow",
+      "count": 4
+  }
+}

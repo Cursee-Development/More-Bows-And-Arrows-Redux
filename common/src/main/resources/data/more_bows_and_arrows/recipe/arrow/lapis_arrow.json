@@ -1,0 +1,18 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "X",
+      "#",
+      "Y"
+      
+  ],
+  "key": {
+    "X": "minecraft:lapis_lazuli",
+    "#": "minecraft:stick",
+    "Y": "minecraft:feather"
+  },
+  "result": {
+      "id": "more_bows_and_arrows:lapis_arrow",
+      "count": 4
+  }
+}

@@ -1,0 +1,20 @@
+﻿{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": [
+      "minecraft:stripped_birch_log",
+      "minecraft:stripped_birch_wood"
+    ],
+    "X": "minecraft:bow"
+  },
+  "pattern": [
+    " # ",
+    " X ",
+    " # "
+  ],
+  "result": {
+    "id": "more_bows_and_arrows:stripped_birch_bow"
+  },
+  "show_notification": true
+}
