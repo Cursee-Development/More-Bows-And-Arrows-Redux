@@ -1,18 +1,19 @@
 package io.github.jason13official.more_bows_and_arrows.impl.common.entity;
 
 import io.github.jason13official.more_bows_and_arrows.impl.common.item.arrow.ArrowType;
+import io.github.jason13official.more_bows_and_arrows.impl.common.item.arrow.IModArrow;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModEntities;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModItems;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
-import net.minecraft.world.entity.projectile.arrow.Arrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.EntityHitResult;
 import org.jspecify.annotations.Nullable;
 
-public class ModArrow extends AbstractArrow {
+public class ModArrow extends AbstractArrow implements IModArrow {
 
   private final ArrowType type;
 
@@ -36,5 +37,21 @@ public class ModArrow extends AbstractArrow {
   @Override
   protected ItemStack getDefaultPickupItem() {
     return ModItems.ARROWS.get(this.type) == null ? ItemStack.EMPTY : new ItemStack(ModItems.ARROWS.get(this.type));
+  }
+
+  public ArrowType getArrowType() {
+    return type;
+  }
+
+  @Override
+  protected void onHitBlock(BlockHitResult result) {
+    super.onHitBlock(result);
+    this.processBlockInteraction(this, result);
+  }
+
+  @Override
+  protected void onHitEntity(EntityHitResult result) {
+    super.onHitEntity(result);
+    this.processEntityInteraction(this, result);
   }
 }

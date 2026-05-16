@@ -27,7 +27,7 @@ public class ModItems {
     for (BowType type : BowType.values()) {
       BOWS.put(
           type,
-          new ModBowItem(type, new Properties().setId(bowKey(type))));
+          new ModBowItem(type, new Properties().durability(type.getUses()).enchantable(1).setId(bowKey(type))));
     }
 
     for (ArrowType type : ArrowType.values()) {
