@@ -3,6 +3,7 @@ package io.github.jason13official.more_bows_and_arrows;
 import io.github.jason13official.more_bows_and_arrows.impl.common.ModConfig;
 import io.github.jason13official.more_bows_and_arrows.impl.common.network.packet.ConfigSyncS2CPacket;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModBlocks;
+import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModEnchantments;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModEntities;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModItems;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModMenus;
@@ -13,6 +14,7 @@ import io.github.jason13official.more_bows_and_arrows.platform.Services;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -47,6 +49,7 @@ public class MoreBowsAndArrowsNeoForge {
     bind(Registries.BLOCK_ENTITY_TYPE, ModTiles::register);
     bind(Registries.MENU, ModMenus::register);
     bind(Registries.CREATIVE_MODE_TAB, ModTabs::register);
+    bind(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, ModEnchantments::register);
 
     EVENT_BUS.addListener((Consumer<FMLCommonSetupEvent>) event -> {
       MoreBowsAndArrows.clientBoundPacketSender = PacketDistributor::sendToPlayer;

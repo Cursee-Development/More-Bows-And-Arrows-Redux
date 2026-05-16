@@ -3,6 +3,7 @@ package io.github.jason13official.more_bows_and_arrows;
 import io.github.jason13official.more_bows_and_arrows.impl.common.ModConfig;
 import io.github.jason13official.more_bows_and_arrows.impl.common.network.packet.ConfigSyncS2CPacket;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModBlocks;
+import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModEnchantments;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModEntities;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModItems;
 import io.github.jason13official.more_bows_and_arrows.impl.common.registry.ModMenus;
@@ -38,6 +39,7 @@ public class MoreBowsAndArrowsFabric implements ModInitializer {
     bind(BuiltInRegistries.BLOCK_ENTITY_TYPE, ModTiles::register);
     bind(BuiltInRegistries.MENU, ModMenus::register);
     bind(BuiltInRegistries.CREATIVE_MODE_TAB, ModTabs::register);
+    bind(BuiltInRegistries.ENCHANTMENT_ENTITY_EFFECT_TYPE, ModEnchantments::register);
 
     MoreBowsAndArrows.clientBoundPacketSender = ServerPlayNetworking::send;
     MoreBowsAndArrows.init();
