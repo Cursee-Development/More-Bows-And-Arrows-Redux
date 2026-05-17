@@ -2,6 +2,7 @@ package com.cursee.more_bows_and_arrows.mixin;
 
 import com.cursee.more_bows_and_arrows.core.registry.ModEnchantments;
 import com.cursee.more_bows_and_arrows.core.registry.ModItems;
+import com.cursee.more_bows_and_arrows.core.world.item.ModBowItem;
 import com.cursee.more_bows_and_arrows.core.world.item.util.BowType;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.client.player.AbstractClientPlayer;
@@ -27,7 +28,7 @@ public class AbstractClientPlayerMixin {
     private void more_bows_and_arrows$getFieldOfViewModifier(CallbackInfoReturnable<Float> cir) {
         AbstractClientPlayer self = (AbstractClientPlayer) (Object) this;
         ItemStack stack = self.getUseItem();
-        if (stack.getItem() instanceof BowItem) {
+        if (stack.getItem() instanceof ModBowItem) {
 
             float f = 1.0F;
             if (self.getAbilities().flying) {

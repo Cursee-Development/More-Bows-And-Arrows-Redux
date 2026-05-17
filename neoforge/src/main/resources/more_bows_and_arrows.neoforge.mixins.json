@@ -7,7 +7,6 @@
     "AbstractArrowMixin",
     "ArrowItemMixin",
     "BowItemMixin",
-    "DispenserBlockMixin",
     "ItemMixin",
     "UtilMixin"
   ],
