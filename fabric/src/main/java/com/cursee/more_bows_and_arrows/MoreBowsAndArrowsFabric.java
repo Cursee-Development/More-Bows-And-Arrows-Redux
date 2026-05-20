@@ -16,8 +16,8 @@ public class MoreBowsAndArrowsFabric implements ModInitializer {
   public void onInitialize() {
     MoreBowsAndArrows.init();
 
-    Registry.register(BuiltInRegistries.ITEM, MoreBowsAndArrows.identifier("test_bow"), new BowItem(new Properties()));
-    Registry.register(BuiltInRegistries.ITEM, MoreBowsAndArrows.identifier("test2_bow"), new ModBowItem(BowType.ACACIA, new Properties()));
+    // Registry.register(BuiltInRegistries.ITEM, MoreBowsAndArrows.identifier("test_bow"), new BowItem(new Properties()));
+    // Registry.register(BuiltInRegistries.ITEM, MoreBowsAndArrows.identifier("test2_bow"), new ModBowItem(BowType.ACACIA, new Properties()));
 
     // after game objects are registered
     ModItems.ARROW_ITEM_FROM_TYPE_MAP.forEach((arrowType, itemDeferredRegistryObject) -> {
