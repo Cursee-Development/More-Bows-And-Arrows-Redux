@@ -20,8 +20,8 @@ import java.util.function.Supplier;
 @SuppressWarnings("deprecation")
 public enum BowType implements Tier {
 
-    TEST(1, 0.0f, 0.0f, 0, 0, () -> Ingredient.of(Blocks.OAK_PLANKS)),
-    TEST2(1, 0.0f, 0.0f, 0, 0, () -> Ingredient.of(Blocks.OAK_PLANKS)),
+    // TEST(1, 0.0f, 0.0f, 0, 0, () -> Ingredient.of(Blocks.OAK_PLANKS)),
+    // TEST2(1, 0.0f, 0.0f, 0, 0, () -> Ingredient.of(Blocks.OAK_PLANKS)),
 
     NORMAL(1, 0.0f, 0.0f, 0, 0, () -> Ingredient.of(Blocks.OAK_PLANKS)),
     NOCTURNAL(369, 2.0f, 4.0f, 3, 20, () -> Ingredient.of(Items.PHANTOM_MEMBRANE)),

@@ -24,9 +24,9 @@ dependencies {
 //    implementation 'org.anarres.cpp:anarres-cpp-jnaerator:1.2.6-JNAerator.2'
 //    // Source: https://mvnrepository.com/artifact/org.anarres.cpp/anarres-cpp-jnaerator
 //    implementation 'org.anarres.cpp:anarres-cpp-jnaerator:1.2.6-JNAerator.2'
-    implementation("com.nativelibs4java:jnaerator:0.12") {
-        exclude group: 'asm', module: 'asm'
-    }
+    // implementation("com.nativelibs4java:jnaerator:0.12") {
+    //     exclude group: 'asm', module: 'asm'
+    // }
     modImplementation fileTree(dir: 'lib', include: ['*.jar'])
 
     // modImplementation "curse.maven:hold-my-items-1127359:6216891"
