@@ -14,12 +14,16 @@ import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.core.Holder;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.Optional;
 
 @Mixin(value = ItemInHandRenderer.class, priority = 1)
 public class ItemInHandRendererMixin {
@@ -30,7 +34,13 @@ public class ItemInHandRendererMixin {
         ItemInHandRenderer self = (ItemInHandRenderer) (Object) this;
 
         if (!player.isUsingItem() && !(player.getUseItem().getItem() instanceof BowItem)) return;
-        if (EnchantmentHelper.getItemEnchantmentLevel(player.level().holderLookup(Registries.ENCHANTMENT).getOrThrow(ModEnchantments.QUICK_PULL), stack) == 0) return;
+
+        // registry lookups on a stale/leaked ClientLevel (e.g. right after logout/disconnect) can miss
+        // modded enchantment entries entirely; bail out instead of letting getOrThrow crash the render thread
+        Optional<Holder.Reference<Enchantment>> quickPullHolder =
+                player.level().holderLookup(Registries.ENCHANTMENT).get(ModEnchantments.QUICK_PULL);
+        if (quickPullHolder.isEmpty()) return;
+        if (EnchantmentHelper.getItemEnchantmentLevel(quickPullHolder.get(), stack) == 0) return;
 
         // player is using a bow with the quick pull enchantment
         assert Minecraft.getInstance().player != null;
